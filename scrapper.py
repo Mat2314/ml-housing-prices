@@ -19,7 +19,7 @@ class HousingScrapper:
         return response.text
     
     def _extract_price(self, price: str):
-        return price[0:price.find('\xa0')]
+        return re.sub("[^0-9]", "", price)
     
     def _extract_rooms(self, rooms: str):
         text = rooms.split(' ')[0]
@@ -83,12 +83,12 @@ def run():
     all_rows = []
     
     for page in tqdm(range(1, num_pages+1)):
-        time.sleep(2)
+        time.sleep(3)
         url = f"https://www.otodom.pl/pl/oferty/wynajem/mieszkanie/warszawa?page={page}&limit=24"
         rows = scrapper.extract_from_page(url)
         all_rows.extend(rows)
     
-    scrapper.save_to_csv("warsaw_houses.csv", all_rows)
+    scrapper.save_to_csv("warsaw_houses1.csv", all_rows)
 
 
 if __name__ == '__main__':
