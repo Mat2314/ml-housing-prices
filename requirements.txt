@@ -1,3 +1,7 @@
 beautifulsoup4
 requests
 tqdm
+fastapi[all]
+joblib
+numpy
+scikit-learn

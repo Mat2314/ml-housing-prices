@@ -92,9 +92,4 @@ def run():
 
 
 if __name__ == '__main__':
-    # scrapper = HousingScrapper()
-    # url = "https://www.otodom.pl/pl/oferty/wynajem/mieszkanie/warszawa?page=1&limit=24"
-    # rows = scrapper.extract_from_page(url)
-    # scrapper.save_to_csv("test.csv", rows)
-    pass
     run()
